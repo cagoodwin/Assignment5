@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 5</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", init, false);
+        function init(){
+            btn5.addEventListener("click", function(){
+                alert("Button five has been clicked");
+            }, false);
+        }
+    </script>
+  
+    
+</head>
+<body>
+  <!------------------------------------------------------------------------->
+  <!--------------------------------#1--------------------------------------->
+  <!------------------------------------------------------------------------->
+   <p>1.       Add a button to a web page. Use the old school HTML attribute method to attach a click event handler to the button. That handler should call a function that displays the message “I have been clicked” out into an alert box.</p>
+    <button onclick="alertMessage()">Click me!</button>
+
+    <script>
+    function alertMessage(){
+    alert("I have been clicked!!");
+};
+    </script>
+    <hr>
+  <!------------------------------------------------------------------------->
+  <!----------------------------------#2------------------------------------->
+  <!------------------------------------------------------------------------->
+    <p>2.       Add a button to a web page and uniquely ID the button. Write a script that finds the button by its ID. Then use the DOM Element method to associate a function with the onclick event of the button. Again, display the message “I have been clicked” out into an alert box.</p>
+    
+    <button id="btn2">No, click ME!</button>
+    <script>
+    var newClick = document.getElementById("btn2");
+newClick.onclick = function(){
+    alert("Yes! I have been clicked!");
+};
+    </script>
+    <hr>
+  <!------------------------------------------------------------------------->
+  <!----------------------------------#3------------------------------------->
+  <!------------------------------------------------------------------------->
+    <p>3.       Add a button to a web page and uniquely ID the button. Write a script that attaches an event listener to the button and listens for the click event. When it’s heard, a user-defined function should be called and the message “I have been clicked” should be displayed out into an alert box.</p>
+    
+    <button id="btn3">Click here</button>
+    <script>
+        btn3.addEventListener("click", alertMessage3, false);
+        function alertMessage3(){
+            alert("The thrid button has been clicked.");
+        };
+    </script>
+    <hr>
+     <!------------------------------------------------------------------------->
+  <!----------------------------------#4------------------------------------->
+  <!------------------------------------------------------------------------->
+    <p>4.       Modify the code within step 3 so that the code that displays an alert box is written directly within a callback function as opposed to a user-defined function.</p>
+    
+    <button id="btn4">Button #4</button>
+    <script>
+        btn4.addEventListener("click", function(){
+                alert("Button 4 has been clicked");
+            }, false);
+        
+    </script>
+    <hr>
+    <!------------------------------------------------------------------------->
+  <!----------------------------------#5------------------------------------->
+  <!------------------------------------------------------------------------->
+    <p>5.       Modify the code in step 4 so that you can write your script within the <head> tag of the page rather than underneath the button in the markup.</p>
+    
+    <button id="btn5">Button Five</button>
+    <hr>
+<!------------------------------------------------------------------------->
+  <!----------------------------------#6------------------------------------->
+  <!------------------------------------------------------------------------->
+    <p>6. Add a link to your web page. Add the text “Visit Google” to the link, set the ID to “redirect” and set the href attribute to http://www.google.com. Now, write a script that alerts the user that they clicked on the link but prevents the browser from also redirecting to the Google site.</p>
+    
+    <a href="http://www.google.com" id="redirect">Visit Google</a>
+    <script>
+    redirect.addEventListener("click", function(){
+        event.preventDefault();
+        alert("You clicked the link!");
+    }, false);
+    </script>
+    <hr>
+<!------------------------------------------------------------------------->
+  <!----------------------------------#7------------------------------------->
+  <!------------------------------------------------------------------------->
+  <p>7. Add a text box and a button to a web page. Add an event listener to the button. When the click event is heard, the button should be disabled, and the text that the user input into the text box should be displayed within an alert box.</p>
+  
+  <form>
+      <p>Please enter some text: <input type="text" id="textbox">
+          <button id="btn7">Click when done</button> </p>
+          
+    <script>
+     var textInput = document.getElementById("textbox");
+         
+    btn7.addEventListener("click", function(){
+        alert(textbox.value);
+    }, false);
+        
+    </script>
+  </form>
+  <hr>
+  <!------------------------------------------------------------------------->
+  <!----------------------------------#8------------------------------------->
+  <!------------------------------------------------------------------------->
+  
+  <p>8.       Create a new page called newpage.html. You will now have 2 web pages including index.html and newpage.html. Add a button to index.html. When the button is clicked, newpage.html should appear as a popup window at 300 pixels wide by 300 pixels high. As soon as newpage.html loads however, resize the window to 500 pixels wide by 300 pixels high. You will need to handle the load event on newpage.html and use a BOM method on newpage.html to accomplish this task.</p>
+  
+  <button id="btn8">Go to a new page</button>
+  <script>
+    btn8.addEventListener("click", function(){
+        window.open("newpage.html", "newpage", "width=300, height = 300, resizable=yes");
+    }, false);  
+    
+  </script>
+  <hr>
+  <!------------------------------------------------------------------------->
+  <!----------------------------------#9------------------------------------->
+  <!------------------------------------------------------------------------->
+  <p>9.       Add two buttons to a web page. Add the text Start to one button and Stop to the other button. Using the BOM .setInterval() method, figure out a way to display the text “Learning JavaScript is fun!” into the console window every 2 seconds but only when the Start button is clicked. If the user clicks on the Stop button, the console should stop logging the text immediately.</p>
+  
+  <button id="btnStart">START</button><button id="btnStop">STOP</button>
+  
+  <script>
+      var x;
+      btnStart.addEventListener("click", function(){
+        x = setInterval(function(){
+            console.log("Learning JavaScript is fun!")
+            }, 2000);
+      }, false);
+      
+      btnStop.addEventListener("click", function(){
+      clearInterval(x);
+      }, false);
+      
+  </script>
+  <hr>
+  
+   <!------------------------------------------------------------------------->
+  <!----------------------------------#10------------------------------------->
+  <!------------------------------------------------------------------------->
+  
+  <p>0.   Add a drop down list to a web page. Populate the drop down list with 4 items. Add a button next to the drop down list and set the text to “Select”. When the user clicks the button, the item selected in the drop down list should appear within an alert box.</p>
+  
+  <form>
+      <select id="dropdown">
+          <option value="Eeny">Eeny</option>
+          <option value="Meeny">Meeny</option>
+          <option value="Miney">Miney</option>
+          <option value="Mo!">Mo!</option>
+      </select>
+      <button id="btn10">Select</button>
+      <script>
+        var dropSelect = document.getElementById("dropdown");
+          
+        btn10.addEventListener("click", function(){
+            alert(dropdown.value);
+        }, false);
+        
+         
+      </script>
+  </form>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

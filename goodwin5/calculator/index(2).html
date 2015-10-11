@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assignment 5, Part 2 - Calculator</title>
+<script>
+    document.addEventListener("DOMContentLoaded", init, false);
+    function init(){
+         calculator.addEventListener("click",function(e){enter(e.target.value)}, false);
+         equal.addEventListener("click", calculate, false);
+        
+        
+        /*one.addEventListener("click", function(){enter(this.value)}, false);
+        two.addEventListener("click", function(){enter(this.value)}, false);
+        three.addEventListener("click", function(){enter(this.value)}, false);
+        four.addEventListener("click", function(){enter(this.value)}, false);
+        five.addEventListener("click", function(){enter(this.value)}, false);
+        six.addEventListener("click", function(){enter(this.value)}, false);
+        seven.addEventListener("click", function(){enter(this.value)}, false);
+        eight.addEventListener("click", function(){enter(this.value)}, false);
+        nine.addEventListener("click", function(){enter(this.value)}, false);
+        add.addEventListener("click", function(){enter(this.value)}, false);
+        subtract.addEventListener("click", function(){enter(this.value)}, false);
+        multiply.addEventListener("click", function(){enter(this.value)}, false);
+        divide.addEventListener("click", function(){enter(this.value)}, false);
+        equal.addEventListener("click", calculate, false);*/
+    };
+    
+   
+    function enter(val){
+        result.value += val;
+        };
+    
+    
+    function calculate(){
+       result.value = eval(result.value);
+    };
+    
+    
+    
+</script>
+</head>
+
+<body>
+    <span id="calculator">
+        <input type="text" readonly id="result">
+        <br>
+        <input type="button" id="seven" value="7">
+        <input type="button" id="eight" value="8">
+        <input type="button" id="nine" value="9">
+        <input type="button" id="divide" value="/">
+        <br>
+        <input type="button" id="four" value="4">
+        <input type="button" id="five" value="5">
+        <input type="button" id="six" value="6">
+        <input type="button" id="multiply" value="*">
+        <br>
+        <input type="button" id="one" value="1">
+        <input type="button" id="two" value="2">
+        <input type="button" id="three" value="3">
+        <input type="button" id="subtract" value="-">
+        <br>
+        <input type="button" id="zero" value="0">
+        <input type="button" id="period" value=".">
+        <input type="button" id="add" value="+">
+        </span> 
+        
+        <input type="button" id="equal" value="=">
+    
+    
+</body>
+</html>
